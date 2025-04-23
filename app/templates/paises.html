@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" integrity="sha512-jnSuA4Ss2PkkikSOLtYs8BlYIeeIK1h99ty4YfvRPAlzr377vr3CXDb7sb7eEEBYjDtcYj+AjBH3FLv5uSJuXg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <h1>Listado de paises</h1>
+    <h3>Hola, {{usuario}}</h3>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th class="fst-italic p-3 mb-2 bg-info text-dark">Nombre </th>
+                <th class="fst-italic p-3 mb-2 bg-info text-dark">Capital</th>
+                <th class="fst-italic p-3 mb-2 bg-info text-dark">Moneda</th>
+                <th class="fst-italic p-3 mb-2 bg-info text-dark">Población</th>
+                <th class="fst-italic p-3 mb-2 bg-info text-dark">Superficie</th>
+                <th class="fst-italic p-3 mb-2 bg-info text-dark">Ciudades pricipales</th>
+            </tr>
+        </thead>
+        <tbody>
+             {% for pais in paises %}
+                 <tr> 
+                    <td class="text-danger">{{ pais.nombre }}</td>
+                    <td class="p-3 mb-2 bg-success text-white">{{ pais.capital }}</td>
+                    <td>{{ pais.moneda }}</td>
+                    <td>{{ pais.poblacion}}</td>
+                    <td>{{ pais.superficie }}</td>
+                  
+                    <td>
+                        {% for ciudad in pais.ciudades_principales %}
+                            {{ ciudad }} 
+                        {% endfor %}
+                    </td>
+                </tr>    
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
